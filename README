@@ -1,3 +1,52 @@
 This program uses ChibiOS 3.0, which can be found at: http://www.chibios.org/ 
 
+Instuctions on building/flashing:
 
+Install the required programs for building/developing:
+sudo apt-get build-essential cmake git gcc-arm-none-eabi dfu-util
+
+______________________________________________________
+
+Move to where you want the source code to be and download the build framework from the Github repository:
+git clone https://github.com/charlesrwest/CANInstallHubFirmware.git
+
+______________________________________________________
+
+Download the source code for ChibiOS 3.0 stable and place it somewhere it can remain undisturbed (such as ~/libraries):
+
+#Get ChibiOS Source
+git clone https://github.com/ChibiOS/ChibiOS.git
+
+#Change to 3.0 stable branch
+git checkout stable_3.0.x
+
+______________________________________________________
+
+Update the makefile in CANInstallHubFirmware so that it knows where the ChibiOS firmware is:
+
+#Change
+CHIBIOS = /home/hewhosurvives/c++/libraries/ChibiOS 
+
+#to
+CHIBIOS = /your/absolute/path/to/ChibiOS
+______________________________________________________
+
+#Move to the CANInstallHubFirmware directory and run
+
+make
+
+#If everything goes well, you should generate binary files which appear in  CANInstallHubFirmware/build
+
+______________________________________________________
+
+Get ready to flash the generated program to the board, plug a micro-usb cable into the board and connect it to your computer.
+
+Next, place the board into “waiting to be flashed” mode by pressing down on and holding on button “SW2” and then toggling button “SW1” several times (both buttons can be released afterwards).  SW2 raises the BOOT0 pin high to indicate that it is desired to enter flash mode and SW1 resets the chip so that it can switch over.  The combination stops any programs that are running on the board and sets the chip into flash mode.
+
+To load the actual program, run the following command in the CANInstallHubFirmware folder to compile and flash the program onto the board:
+
+sudo make dfu-flash
+
+If building/flashing was successful, you will see a progress monitor go all the way to 100% to indicate the program was flashed.
+
+Toggle the “SW1” button once to get the board out of flash mode and it will begin to run your program.
