@@ -50,3 +50,10 @@ sudo make dfu-flash
 If building/flashing was successful, you will see a progress monitor go all the way to 100% to indicate the program was flashed.
 
 Toggle the “SW1” button once to get the board out of flash mode and it will begin to run your program.
+
+______________________________________________________
+
+If you have any linker errors related to _exit, _kill or _getpid, then make the changes to the ChibiOS/os/various/cpp_wrappers/syscalls_cpp.cpp file
+ recommended in http://forum.chibios.org/phpbb/viewtopic.php?f=24&t=2842
+
+
