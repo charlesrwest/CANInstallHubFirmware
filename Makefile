@@ -217,9 +217,9 @@ include $(RULESPATH)/rules.mk
 flash:
 	make
 	st-flash --reset erase
-	st-flash --reset write ./build/droneBumper.bin 0x08000000
+	st-flash --reset write ./build/$(PROJECT).bin 0x08000000
 
 #Add rule to flash to board via built-in USB bootloader (need to have boot0 connected to VDD at boot to be able to use bootloader)
 dfu-flash:
 	make #Compile if it hasn't been
-	dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08000000 -D ./build/droneBumper.bin #Flash using dfu-util
+	dfu-util -a 0 -d 0483:df11 --dfuse-address 0x08000000 -D ./build/$(PROJECT).bin #Flash using dfu-util
