@@ -78,7 +78,7 @@ endif
 #
 
 # Define project name here
-PROJECT = droneBumper
+PROJECT = CanInstallHub
 
 # Imported source files and paths
 CHIBIOS = /home/hewhosurvives/c++/libraries/ChibiOS
