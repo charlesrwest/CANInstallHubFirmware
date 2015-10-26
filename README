@@ -3,7 +3,7 @@ This program uses ChibiOS 3.0, which can be found at: http://www.chibios.org/
 Instuctions on building/flashing:
 
 Install the required programs for building/developing:
-sudo apt-get build-essential cmake git gcc-arm-none-eabi dfu-util
+sudo apt-get install build-essential cmake git gcc-arm-none-eabi dfu-util
 
 ______________________________________________________
 
@@ -16,6 +16,9 @@ Download the source code for ChibiOS 3.0 stable and place it somewhere it can re
 
 #Get ChibiOS Source
 git clone https://github.com/ChibiOS/ChibiOS.git
+
+#Change working directory to ChibiOS folder
+cd ChibiOS
 
 #Change to 3.0 stable branch
 git checkout stable_3.0.x
